@@ -6,9 +6,10 @@ on:
   pull_request:
     branches: [ "master" ]
   schedule:
-    # Runs twice: daily at 2 AM UTC and Monday/Thursday at 2 PM UTC
-    - cron: '0 14 * * *'     # Daily at 2 AM UTC
+    # Runs twice: daily at 2 PM and 3 AM UTC Daily 
+    - cron: '0 14 * * *'
     - cron: '0 03 * * *'
+    
 jobs:
   build:
 
@@ -24,3 +25,11 @@ jobs:
         cache: maven
     - name: Execute Tests
       run: mvn clean test -Dsuite=testng
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: Logs
+        path: logs/
+
+      
