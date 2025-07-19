@@ -6,10 +6,10 @@ on:
   pull_request:
     branches: [ "master" ]
   workflow_dispatch:  
-  schedule:
+  #schedule:
     # Runs twice: daily at 2 PM and 3 AM UTC Daily 
     #- cron: '0 14 * * *'
-    - cron: '0 03 * * *'
+    #- cron: '0 03 * * *'
     
 jobs:
   test:
